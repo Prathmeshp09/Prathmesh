@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        .row{
+            display:flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .gallery{
+            position: relative;
+            width: 400px;
+            flex-shrink: 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            background: #fff;
+        }
+        .gallery img{
+            width: 100%;
+            height: 100%;
+            display: block;
+            border-radius: 10px ;
+        }
+        .layer{
+            position: absolute;
+            bottom: 0;
+           
+            color: white;
+            width: 100%;
+            padding: 12px 0;
+            text-align: center;
+            border-radius: 0 0 10px 10px;
+            font-size: 18px;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1> Popular Places in Maharashtra</h1>
+    <div class="row">
+                <div class="gallery">
+                <img src="https://www.trawell.in/admin/images/upload/520468440Ganpatipule_Temple.jpg">
+                <div class="layer">
+                    <h3>GANPATIPULE</h3>
+                </div>
+      </div>
+     <div class="gallery">
+                <img src="https://mysimplesojourn.com/wp-content/uploads/2018/12/Malvan-sea_2.jpg">
+                <div class="layer">
+                    <h3>MALVAN</h3>
+                </div>
+      </div>
+      <div class="gallery">
+                <img src="https://taxibazaar.in/assets/images/blog/mahabaleshwar.jpg">
+                <div class="layer">
+                    <h3>MAHABALESHWAR</h3>
+                </div>
+      </div>
+      <div class="gallery">
+                <img src="https://clubmahindra.gumlet.io/blog/media/section_images/desktop75--d5a8cc64df70147.jpg?w=376&dpr=2.6">
+                <div class="layer">
+                    <h3>LONAVALA</h3>
+                </div>
+      </div>
+      <div class="gallery">
+                <img src="https://s7ap1.scene7.com/is/image/incredibleindia/panchgani-mahabaleshwar-maharashtra-1-attr-hero?qlt=82&ts=1726668854794">
+                <div class="layer">
+                    <h3>PANCHGANI</h3>
+                </div>
+      </div>
+      <div class="gallery">
+                <img src="https://clubmahindra.gumlet.io/blog/images/Matheran-in-Winter.jpg?w=376&dpr=2.6">
+                <div class="layer">
+                    <h3>MATHERAN</h3>
+                </div>
+      </div>
+    
+</body>
+</html>
