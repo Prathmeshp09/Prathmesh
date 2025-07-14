@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Card Design with Map Method</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #2d3748;
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, #4f46e5, #10b981);
+            border-radius: 2px;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            justify-items: center;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            max-width: 350px;
+            width: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #2d3748;
+        }
+
+        .card-description {
+            color: #4a5568;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .card-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(to right, #4f46e5, #7c3aed);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .card-button:hover {
+            background: linear-gradient(to right, #4338ca, #6d28d9);
+            box-shadow: 0 2px 5px rgba(79, 70, 229, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Our Services</h1>
+        <div class="cards-container" id="cards">
+            <!-- Cards will be dynamically inserted here by JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cardsData = [
+                {
+                    id: 1,
+                    title: 'Web Development',
+                    description: 'Custom web applications built with modern technologies to meet your business needs and scale as you grow.',
+                    image: {
+                        url: 'https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1eb56e12-b30d-4398-8429-dffc6a4408cb.png',
+                        alt: 'Developer working on laptop with code editor open and multiple monitors displaying web applications'
+                    },
+                    link: '#'
+                },
+                {
+                    id: 2,
+                    title: 'UI/UX Design',
+                    description: 'Beautiful and intuitive user interfaces designed with user experience principles to maximize engagement.',
+                    image: {
+                        url: 'https://api.reliasoftware.com/uploads/ux_ui_difference_75e23a5fc7.webp',
+                        alt: 'Designer working on tablet creating wireframes with color palettes and design elements visible'
+                    },
+                    link: '#'
+                },
+                {
+                    id: 3,
+                    title: 'Digital Marketing',
+                    description: 'Comprehensive digital marketing strategies to boost your online presence and reach your target audience.',
+                    image: {
+                        url: 'https://api.digitalmate.online/storage/Blogs/Agency%20Digital%20Marketing0-rident.webp',
+                        alt: 'Marketing analytics dashboard showing growth metrics and engagement statistics displayed on large screen'
+                    },
+                    link: '#'
+                },
+                {
+                    id: 4,
+                    title: 'Mobile Development',
+                    description: 'Native and cross-platform mobile applications designed for performance and great user experience.',
+                    image: {
+                        url: 'https://www.braintechnosys.com/blog/wp-content/uploads/2020/08/mobile-app-developmen.jpeg',
+                        alt: 'Modern smartphone displaying colorful mobile app interface against white background'
+                    },
+                    link: '#'
+                },
+                {
+                    id: 5,
+                    title: 'Cloud Solutions',
+                    description: 'Scalable cloud infrastructure and services to ensure reliability, security, and performance for your applications.',
+                    image: {
+                        url: 'https://365datacenters.com/wp-content/uploads/2022/05/Cloud-Solutions.png',
+                        alt: 'Futuristic cloud computing infrastructure with floating servers and data connections in blue tones'
+                    },
+                    link: '#'
+                },
+                {
+                    id: 6,
+                    title: 'Data Analytics',
+                    description: 'Turn your data into actionable insights with powerful analytics and visualization tools customized for your needs.',
+                    image: {
+                        url: 'https://www.michiganstateuniversityonline.com/wp-content/uploads/sites/3/2019/08/Four-Types-of-Data-Analytics.jpeg?w=750&h=375&crop=1',
+                        alt: 'Three-dimensional data visualization with colorful graphs and charts floating in digital space'
+                    },
+                    link: '#'
+                }
+            ];
+
+            const cardsContainer = document.getElementById('cards');
+            
+            // Using map to create card elements
+            const cardsHTML = cardsData.map(card => `
+                <div class="card">
+                    <div class="card-image">
+                        <img src="${card.image.url}" alt="${card.image.alt}" />
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">${card.title}</h3>
+                        <p class="card-description">${card.description}</p>
+                        <a href="${card.link}" class="card-button">Learn More</a>
+                    </div>
+                </div>
+            `).join('');
+
+            cardsContainer.innerHTML = cardsHTML;
+        });
+    </script>
+</body>
+</html>
+
